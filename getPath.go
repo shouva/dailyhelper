@@ -6,8 +6,8 @@ import (
 	"path/filepath"
 )
 
-// GetPath :
-func GetPath(isbuild bool) string {
+// GetCurrentPath :
+func GetCurrentPath(isbuild bool) string {
 	if isbuild {
 		return getExePath()
 	}
