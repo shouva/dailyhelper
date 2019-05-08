@@ -2,7 +2,8 @@ package dailyhelper
 
 import "strings"
 
-func snakeCaseToCamelCase(inputUnderScoreStr string) (camelCase string) {
+// SnakeCaseToCamelCase :
+func SnakeCaseToCamelCase(inputUnderScoreStr string) (camelCase string) {
 	//snake_case to camelCase
 
 	isToUpper := false
