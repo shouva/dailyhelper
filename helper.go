@@ -11,7 +11,8 @@ func readFile(path string) ([]byte, error) {
 	filesource, err := os.Open(path)
 	if err != nil {
 		fmt.Println("convert jsonFile ke byteArray")
-		panic(err)
+		return nil, err
+		// panic(err)
 	}
 	defer filesource.Close()
 	return ioutil.ReadAll(filesource)
@@ -22,7 +23,8 @@ func ReadConfig(path string, config interface{}) error {
 	bytefile, err := readFile(path)
 	if err != nil {
 		fmt.Println("Convert jsonFile ke byteArray gagal")
-		panic(err)
+		return err
+		// panic(err)
 	}
 	err = json.Unmarshal(bytefile, &config)
 	if err != nil {
