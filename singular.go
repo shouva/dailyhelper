@@ -107,14 +107,15 @@ func Singular(plural string) string {
 	if result == "" {
 		// to handle words like apples, doors, cats
 		if len(plural) > 2 {
-			if string(plural[len(plural)-1]) == "s" {
+			if string(plural[len(plural)-3:]) == "ies" {
+				return string(plural[:len(plural)-3] + "y")
+			} else if string(plural[len(plural)-1]) == "s" && string(plural[len(plural)-2:]) != "ss" {
 				return string(plural[:len(plural)-1])
 			}
 		}
 		return plural
-	} else {
-		return result
 	}
+	return result
 
 }
 
