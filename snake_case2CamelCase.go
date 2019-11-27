@@ -31,3 +31,12 @@ func SnakeCaseToCamelCase(inputUnderScoreStr string, firstUpperCase bool) (camel
 	return
 
 }
+
+// BeautySingularity : converting NameId or Nameid to nameID etc
+func BeautySingularity(id string) string {
+	id = strings.ReplaceAll(id, "Id", "ID")
+	id = strings.ReplaceAll(id, "Api", "API")
+	id = strings.ReplaceAll(id, "Ip", "IP")
+	id = strings.ReplaceAll(id, "Uuid", "UUID")
+	return id
+}

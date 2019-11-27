@@ -119,6 +119,7 @@ func Singular(plural string) string {
 
 }
 
+// IsCountable :
 func IsCountable(plural string) bool {
 	// dictionary of word that has no plural version
 	toCheck := strings.ToLower(plural)
