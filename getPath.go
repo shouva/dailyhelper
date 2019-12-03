@@ -2,6 +2,8 @@ package dailyhelper
 
 import (
 	"fmt"
+	"mime/multipart"
+	"net/http"
 	"os"
 	"path/filepath"
 )
@@ -28,4 +30,21 @@ func getExePath() string {
 	}
 	exPath := filepath.Dir(ex)
 	return exPath
+}
+
+// IsValidImage :
+func IsValidImage(file multipart.File) bool {
+	buff := make([]byte, 512)
+	if _, err := file.Read(buff); err != nil {
+		fmt.Println(err) // do something with that error
+		return false
+	}
+	tipe := http.DetectContentType(buff)
+	switch tipe {
+	case "image/png", "image/jpeg", "image/jpg":
+		return true
+	default:
+		fmt.Println(tipe)
+		return false
+	}
 }
